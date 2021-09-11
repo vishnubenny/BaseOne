@@ -3,7 +3,7 @@ package com.vishnu.baseone.home.di
 import com.vishnu.baseone.home.HomeActivity
 import dagger.Subcomponent
 
-@Subcomponent
+@Subcomponent(modules = [HomeModule::class])
 interface HomeSubComponent {
 
     @Subcomponent.Factory

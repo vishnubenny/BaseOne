@@ -3,7 +3,7 @@ package com.vishnu.baseone.detail.di
 import com.vishnu.baseone.detail.DetailActivity
 import dagger.Subcomponent
 
-@Subcomponent
+@Subcomponent(modules = [DetailModule::class])
 interface DetailSubComponent {
 
     @Subcomponent.Factory

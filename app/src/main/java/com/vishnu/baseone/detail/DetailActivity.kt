@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.vishnu.baseone.base.AppComponent
 import com.vishnu.baseone.base.BaseActivity
 import com.vishnu.baseone.databinding.ActivityDetailBinding
+import com.vishnu.baseone.home.HomeViewModel
 import javax.inject.Inject
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>() {
