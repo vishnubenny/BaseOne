@@ -3,25 +3,17 @@ package com.vishnu.baseone.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.vishnu.baseone.home.di.SubComponent
+import com.vishnu.baseone.home.di.HomeSubComponent
 
 abstract class BaseActivity<V : ViewBinding> : AppCompatActivity() {
-
-    lateinit var diComponent: SubComponent
+    lateinit var diComponentHome: HomeSubComponent
     private lateinit var binding: V
     fun binding() = binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setupDiComponent()
+        injectSubComponent((applicationContext as App).appComponent)
         super.onCreate(savedInstanceState)
         setContentViewFromBinding()
-    }
-
-    private fun setupDiComponent() {
-        diComponent = (applicationContext as App).appComponent
-            .subComponent()
-            .create()
-        injectDiComponent(diComponent)
     }
 
     private fun setContentViewFromBinding() {
@@ -32,5 +24,5 @@ abstract class BaseActivity<V : ViewBinding> : AppCompatActivity() {
 
     abstract fun getViewBinding(): V
 
-    abstract fun injectDiComponent(diComponent: SubComponent)
+    abstract fun injectSubComponent(appComponent: AppComponent)
 }

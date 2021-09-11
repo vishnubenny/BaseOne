@@ -1,9 +1,9 @@
 package com.vishnu.baseone.detail
 
 import android.os.Bundle
+import com.vishnu.baseone.base.AppComponent
 import com.vishnu.baseone.base.BaseActivity
 import com.vishnu.baseone.databinding.ActivityDetailBinding
-import com.vishnu.baseone.home.di.SubComponent
 import javax.inject.Inject
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>() {
@@ -13,8 +13,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
 
     override fun getViewBinding() = ActivityDetailBinding.inflate(layoutInflater)
 
-    override fun injectDiComponent(diComponent: SubComponent) {
-        diComponent.inject(this)
+    override fun injectSubComponent(appComponent: AppComponent) {
+        appComponent.detailSubComponent()
+            .create()
+            .inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

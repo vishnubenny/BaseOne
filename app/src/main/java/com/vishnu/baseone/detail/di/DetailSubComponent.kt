@@ -1,17 +1,15 @@
-package com.vishnu.baseone.home.di
+package com.vishnu.baseone.detail.di
 
 import com.vishnu.baseone.detail.DetailActivity
-import com.vishnu.baseone.home.HomeActivity
 import dagger.Subcomponent
 
 @Subcomponent
-interface SubComponent {
+interface DetailSubComponent {
 
     @Subcomponent.Factory
     interface Factory {
-        fun create(): SubComponent
+        fun create(): DetailSubComponent
     }
 
-    fun inject(homeActivity: HomeActivity)
     fun inject(detailActivity: DetailActivity)
 }
